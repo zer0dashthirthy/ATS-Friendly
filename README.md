@@ -1,59 +1,81 @@
-# ATS-Friendly CV Builder 🚀
+# ATS-Friendly CV Builder
 
-A modern, web-based CV builder designed specifically to beat Applicant Tracking Systems (ATS). Create professional, clean, and high-scoring resumes in minutes.
+A professional web-based application designed to generate resumes optimized for Applicant Tracking Systems (ATS). This tool ensures high readability for automated recruitment software while maintaining a sophisticated visual presentation for human reviewers.
 
-![ATS-Friendly Banner](https://ats-friendly.github.io/ATS-Friendly/assets/og-image.png)
+## Key Features
 
-## ✨ Features
+- **AI-Powered Resume Parsing**: Integration with Google Gemini 1.5 Pro for automated data extraction from legacy PDF resumes.
+- **Standardized Templates**: Clean, valid HTML/CSS structures for "Classic", "Compact", "Elegant", and "Modern" layouts.
+- **Cross-Platform Synchronization**: Real-time data persistence using Firebase Firestore for seamless transitions between desktop and mobile environments.
+- **Internationalization**: Comprehensive support for English and Turkish localization.
+- **Dynamic Layout Engine**: Real-time adjustment of typography, margins, and section spacing via an interactive interface.
+- **Mobile Optimization**: Specialized responsive editor and scaled preview engine for professional mobile use.
+- **Security Compliance**: GDPR and KVKK compliant data handling with SSL encryption.
 
-- **🤖 AI-Powered Parsing**: Upload your existing PDF resume and let Gemini 1.5 Pro automatically extract your details into the form.
-- **📄 ATS-Optimized Templates**: Choose from "Classic", "Compact", "Elegant", or the photo-friendly "Modern" template designed with clean code structures that HR software can easily read.
-- **🔗 Professional Connectivity**: Add your LinkedIn profile link to any template to ensure a complete, ATS-compatible professional profile.
-- **☁️ Real-time Cloud Sync**: Your progress is automatically saved to Firebase Firestore. Start on your PC and finish on your phone.
-- **🌍 Bilingual Support**: Full localization for both Turkish (TR) and English (EN) users.
-- **🎨 Live Customization**: Adjust fonts, colors, margins, and section gaps in real-time with an interactive preview.
-- **📱 Responsive UI**: Fully optimized for mobile devices with a specialized "bottom sheet" editor and scaled preview.
-- **🔒 Secure & Private**: GDPR/KVKK compliant. Data is encrypted via SSL and stored securely in Firebase.
+## Architecture and Tech Stack
 
-## 🛠️ Tech Stack
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3 (Grid and Flexbox).
+- **Backend**: Firebase Cloud Functions (Node.js runtime).
+- **Database**: Firebase Firestore.
+- **Authentication**: Firebase Authentication.
+- **AI Integration**: Google Generative AI (Gemini 1.5 Pro).
+- **PDF Processing**: PDF.js for client-side text extraction and analysis.
 
-- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3 (Grid/Flexbox).
-- **Backend**: Firebase Cloud Functions (Node.js).
-- **Database & Auth**: Firebase Firestore & Firebase Authentication.
-- **AI Engine**: Google Generative AI (Gemini 1.5 Pro).
-- **PDF Processing**: PDF.js for client-side text extraction.
-
-## 🚀 Getting Started
+## Installation and Setup
 
 ### Prerequisites
-- Node.js installed.
-- A Firebase project.
-- A Google AI Studio API Key.
 
-### Local Setup
-1. Clone the repository:
+- Node.js (Long Term Support version recommended).
+- Firebase Command Line Interface (CLI).
+- Google AI Studio API Key.
+
+### Local Configuration
+
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/ats-friendly/ATS-Friendly.git
    ```
-2. Navigate to the project folder and install function dependencies:
+
+2. **Install Dependencies**:
+   Navigate to the `functions` directory and install the required Node.js packages:
    ```bash
    cd functions && npm install
    ```
-3. Configure your Firebase environment:
-   - Update `firebaseConfig` in `script.js` with your project credentials.
-   - Set up your Gemini API Key using Firebase Secrets:
+
+3. **Firebase Environment**:
+   - Initialize the Firebase project and update the `firebaseConfig` object in `script.js`.
+   - Provision the Gemini API Key using Firebase Secrets:
      ```bash
      firebase functions:secrets:set GEMINI_API_KEY
      ```
 
-### Deployment
-Deploy to Firebase Hosting and Functions:
+## Usage and Deployment
+
+### Development
+To run the application locally, use a standard web server or the Firebase Hosting emulator:
+```bash
+firebase emulators:start
+```
+
+### Production Deployment
+Deploy the frontend and backend components to the Firebase production environment:
 ```bash
 firebase deploy
 ```
 
-## 🛡️ Security
-This project includes built-in XSS prevention using HTML escaping for all user-generated content in the CV preview pane.
+## Security
 
-## 📄 License
-© 2026 ATS-Friendly CV Maker. All rights reserved.
+The application implements rigorous security protocols, including client-side HTML escaping to mitigate Cross-Site Scripting (XSS) risks for all user-generated content. Data is stored within the Firebase ecosystem with restricted access rules.
+
+## License
+
+This project is licensed under the MIT License.
+
+### MIT License Blurb
+Copyright (c) 2026 ATS-Friendly CV Maker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
