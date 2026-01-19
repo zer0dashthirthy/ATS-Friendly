@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ats-friendly.github.io/ATS-Friendly/sitemap.xml

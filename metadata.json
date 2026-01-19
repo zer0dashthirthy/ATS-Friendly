@@ -1,0 +1,5 @@
+{
+    "name": "ATS-Friendly CV Builder",
+    "description": "An application to create professional, ATS-friendly CVs with cloud storage. This version fixes a critical mobile layout issue to ensure a seamless experience on all devices.",
+    "requestFramePermissions": []
+  }

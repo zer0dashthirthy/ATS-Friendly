@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="tr" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS-Friendly | Profesyonel Bulut CV Oluşturucu</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCW4JWYYN4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MCW4JWYYN4');
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta name="description" content="Ücretsiz, ATS uyumlu ve profesyonel CV oluşturucu. Dakikalar içinde işe alım sistemlerinden geçen modern özgeçmişler hazırlayın.">
+    <meta name="keywords" content="CV hazırlama, özgeçmiş oluşturucu, ATS friendly resume, ücretsiz CV, profesyonel CV, online resume builder">
+    <meta name="author" content="ATS-Friendly">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ats-friendly.github.io/ATS-Friendly/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ats-friendly.github.io/ATS-Friendly/">
+    <meta property="og:site_name" content="ATS-Friendly">
+    <meta property="og:title" content="ATS-Friendly | Profesyonel Bulut CV Oluşturucu">
+    <meta property="og:description" content="İşe alım robotlarını yenecek profesyonel CV'nizi ücretsiz oluşturun.">
+    <meta property="og:image" content="https://ats-friendly.github.io/ATS-Friendly/assets/og-image.png">
+    <meta property="og:image:secure_url" content="https://ats-friendly.github.io/ATS-Friendly/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="tr_TR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ats-friendly.github.io/ATS-Friendly/">
+    <meta name="twitter:title" content="ATS-Friendly | Profesyonel Bulut CV Oluşturucu">
+    <meta name="twitter:description" content="Modern işe alım sistemleri (ATS) ile %100 uyumlu, profesyonel CV'ler hazırlayın.">
+    <meta name="twitter:image" content="https://ats-friendly.github.io/ATS-Friendly/assets/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Merriweather:wght@300;400;700&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Raleway:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+    <div id="toast">Kaydedildi!</div>
+
+    <div id="layout-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-i18n="modal_settings_title">Görünüm ve Düzen</h3>
+                <button class="close-modal" onclick="closeLayoutModal()" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label data-i18n="lbl_color">Vurgu Rengi</label>
+                    <div class="color-options">
+                        <button class="color-btn" style="background-color: #2c3e50;" onclick="applyColor('#2c3e50')" title="Midnight Blue"></button>
+                        <button class="color-btn" style="background-color: #3498db;" onclick="applyColor('#3498db')" title="Classic Blue"></button>
+                        <button class="color-btn" style="background-color: #27ae60;" onclick="applyColor('#27ae60')" title="Emerald Green"></button>
+                        <button class="color-btn" style="background-color: #c0392b;" onclick="applyColor('#c0392b')" title="Crimson Red"></button>
+                        <button class="color-btn" style="background-color: #8e44ad;" onclick="applyColor('#8e44ad')" title="Royal Purple"></button>
+                        <button class="color-btn" style="background-color: #000000;" onclick="applyColor('#000000')" title="Elegant Black"></button>
+                        <button class="color-btn" style="background-color: #d35400;" onclick="applyColor('#d35400')" title="Pumpkin Orange"></button>
+                        <button class="color-btn" style="background-color: #7f8c8d;" onclick="applyColor('#7f8c8d')" title="Concrete Grey"></button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label data-i18n="lbl_font">Yazı Tipi</label>
+                    <div class="font-options-grid">
+                        <button class="font-btn" style="font-family: 'Roboto', sans-serif;" onclick="applyFont('roboto')">Roboto</button>
+                        <button class="font-btn" style="font-family: 'Open Sans', sans-serif;" onclick="applyFont('opensans')">Open Sans</button>
+                        <button class="font-btn" style="font-family: 'Montserrat', sans-serif;" onclick="applyFont('montserrat')">Montserrat</button>
+                        <button class="font-btn" style="font-family: 'Lato', sans-serif;" onclick="applyFont('lato')">Lato</button>
+                        <button class="font-btn" style="font-family: 'Raleway', sans-serif;" onclick="applyFont('raleway')">Raleway</button>
+                        <button class="font-btn" style="font-family: 'PT Serif', serif;" onclick="applyFont('ptserif')">PT Serif</button>
+                        <button class="font-btn" style="font-family: 'Playfair Display', serif;" onclick="applyFont('playfair')">Playfair</button>
+                        <button class="font-btn" style="font-family: 'Lora', serif;" onclick="applyFont('lora')">Lora</button>
+                        <button class="font-btn" style="font-family: 'Merriweather', serif;" onclick="applyFont('merriweather')">Merriweather</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <div class="range-header">
+                        <label data-i18n="lbl_fontsize">Yazı Boyutu</label>
+                        <span id="val-fontsize">11pt</span>
+                    </div>
+                    <input type="range" id="rng-fontsize" min="9" max="14" step="0.5" value="11" oninput="updateLayout()">
+                </div>
+                <div class="setting-group">
+                    <div class="range-header">
+                        <label data-i18n="lbl_lineheight">Satır Aralığı</label>
+                        <span id="val-lineheight">1.4</span>
+                    </div>
+                    <input type="range" id="rng-lineheight" min="1.0" max="2.0" step="0.1" value="1.4" oninput="updateLayout()">
+                </div>
+
+                <div class="setting-group">
+                    <div class="range-header">
+                        <label data-i18n="lbl_margin">Kenar Boşluğu</label>
+                        <span id="val-margin">20mm</span>
+                    </div>
+                    <input type="range" id="rng-margin" min="10" max="35" step="1" value="20" oninput="updateLayout()">
+                </div>
+
+                <div class="setting-group">
+                    <div class="range-header">
+                        <label data-i18n="lbl_sectiongap">Bölüm Aralığı</label>
+                        <span id="val-sectiongap">15px</span>
+                    </div>
+                    <input type="range" id="rng-sectiongap" min="5" max="40" step="1" value="15" oninput="updateLayout()">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-clear-mobile" onclick="resetAll()" data-i18n="btn_clear">Temizle</button>
+                <button class="btn btn-primary" onclick="closeLayoutModal()" data-i18n="btn_save_close">Kaydet & Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="account-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-i18n="modal_account_title">Hesabım</h3>
+                <button class="close-modal" onclick="closeAccountModal()" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="account-menu">
+                    <button class="account-item" onclick="openProfile()">
+                        <span class="icon">👤</span>
+                        <div class="account-item-text">
+                            <span class="title" data-i18n="menu_profile">Profil Bilgilerim</span>
+                            <span class="desc" data-i18n="menu_profile_desc">Hesap ve e-posta ayarları</span>
+                        </div>
+                    </button>
+                    <button class="account-item" onclick="openFAQ()">
+                        <span class="icon">❓</span>
+                        <div class="account-item-text">
+                            <span class="title" data-i18n="menu_faq">Sıkça Sorulan Sorular</span>
+                            <span class="desc" data-i18n="menu_faq_desc">Yardım ve destek</span>
+                        </div>
+                    </button>
+                    <hr style="border:0; border-top:1px solid #eee; margin:10px 0;">
+                    <button class="account-item danger" onclick="logout()">
+                        <span class="icon">🚪</span>
+                        <div class="account-item-text">
+                            <span class="title" data-i18n="btn_logout">Çıkış Yap</span>
+                            <span class="desc" data-i18n="menu_logout_desc">Oturumu güvenli bir şekilde kapat</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="policy-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="policy-title">Policy Title</h3>
+                <button class="close-modal" onclick="closePolicyModal()" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body" id="policy-content" style="font-size: 14px; line-height: 1.6; color: #444;">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closePolicyModal()" style="width:100%" data-i18n="btn_save_close">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="landing-view" class="view-section active">
+        <header class="landing-header">
+            <div class="brand-container">
+                <div class="brand-logo">AF</div>
+                <div class="brand-text" style="color:#2d3436;">ATS-Friendly</div>
+            </div>
+            <div class="header-actions">
+                <div class="lang-switcher-minimal">
+                    <button class="lang-btn-mini active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                    <button class="lang-btn-mini" data-lang="en" onclick="setLanguage('en')">EN</button>
+                </div>
+                <button class="btn-text" onclick="showAuth(true)" data-i18n="auth_btn_login">Giriş Yap</button>
+                <button class="btn-primary-small" onclick="showAuth(false)" data-i18n="auth_btn_signup">Kayıt Ol</button>
+            </div>
+        </header>
+
+        <main class="landing-hero">
+            <div class="hero-content">
+                <h1 data-i18n="landing_h1">İşe Alım Robotlarını<br><span class="highlight-text">Yenecek CV'nizi Oluşturun</span></h1>
+                <p class="hero-subtitle" data-i18n="landing_subtitle">Modern işe alım sistemleri (ATS) ile %100 uyumlu, profesyonel ve sade CV'ler hazırlayın. Üstelik tamamen ücretsiz.</p>
+                <div class="hero-buttons">
+                    <button class="btn-hero-primary" onclick="showAuth(false)" data-i18n="btn_start_free">Hemen Ücretsiz Başla</button>
+                    <button class="btn-hero-secondary" onclick="scrollToFeatures()" data-i18n="btn_how_it_works">Nasıl Çalışır?</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                    <div class="mockup-header">
+                        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mock-line title"></div>
+                        <div class="mock-line short"></div>
+                        <br>
+                        <div class="mock-line"></div>
+                        <div class="mock-line"></div>
+                        <div class="mock-line"></div>
+                        <div class="mock-badge">ATS Score: 98/100</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section id="features" class="features-section">
+            <div class="feature-card">
+                <div class="f-icon">🤖</div>
+                <h3 data-i18n="feat_1_title">ATS Dostu Format</h3>
+                <p data-i18n="feat_1_desc">Karmaşık grafikler yok. İnsan kaynakları yazılımlarının (ATS) kolayca okuyabileceği temiz kod yapısı.</p>
+            </div>
+            <div class="feature-card">
+                <div class="f-icon">💸</div>
+                <h3 data-i18n="feat_2_title">%100 Ücretsiz</h3>
+                <p data-i18n="feat_2_desc">Gizli ödeme yok, filigran yok. Sınırsız düzenleme ve PDF indirme hakkı.</p>
+            </div>
+            <div class="feature-card">
+                <div class="f-icon">☁️</div>
+                <h3 data-i18n="feat_3_title">Bulut Kayıt</h3>
+                <p data-i18n="feat_3_desc">CV'niz bulutta güvende. İstediğiniz cihazdan (PC veya Mobil) kaldığınız yerden devam edin.</p>
+            </div>
+        </section>
+
+        <section class="templates-showcase">
+            <h2 class="section-title" data-i18n="showcase_title">Profesyonel Şablonlar</h2>
+            <p class="section-subtitle" data-i18n="showcase_subtitle">Size en uygun tasarımı seçin ve CV'nizi dakikalar içinde hazırlayın</p>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-img-wrapper">
+                        <img src="assets/classic-cv.png" alt="Klasik CV Şablonu" loading="lazy">
+                    </div>
+                    <h3 data-i18n="tpl_classic">Klasik</h3>
+                    <p data-i18n="tpl_classic_desc">🏛️ Geleneksel </p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img-wrapper">
+                        <img src="assets/compact-cv.png" alt="Kompakt CV Şablonu" loading="lazy">
+                    </div>
+                    <h3 data-i18n="tpl_compact">Kompakt</h3>
+                    <p data-i18n="tpl_compact_desc">📄 Minimal</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img-wrapper">
+                        <img src="assets/modern-cv.png" alt="Modern CV Şablonu" loading="lazy">
+                    </div>
+                    <h3 data-i18n="tpl_modern">Modern</h3>
+                    <p data-i18n="tpl_modern_desc">✨ Fotoğraflı & Şık</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-img-wrapper">
+                        <img src="assets/elegant-cv.png" alt="Elegant CV Şablonu" loading="lazy">
+                    </div>
+                    <h3 data-i18n="tpl_elegant">Elegant</h3>
+                    <p data-i18n="tpl_elegant_desc">💎 Estetik</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="landing-footer">
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <div class="badge-icon">🔐</div>
+                    <div class="badge-text">
+                        <strong data-i18n="badge_secure">Güvenli Depolama</strong>
+                        <span data-i18n="badge_secure_desc">256-bit SSL Şifreleme</span>
+                    </div>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">🚫</div>
+                    <div class="badge-text">
+                        <strong data-i18n="badge_no_sell">Veri Satışı Yok</strong>
+                        <span data-i18n="badge_no_sell_desc">Bilgileriniz Sizinle Kalır</span>
+                    </div>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">✓</div>
+                    <div class="badge-text">
+                        <strong data-i18n="badge_gdpr">GDPR & KVKK Uyumlu</strong>
+                        <span data-i18n="badge_gdpr_desc">Veri Koruma Standartları</span>
+                    </div>
+                </div>
+            </div>
+            <p>&copy; 2026 ATS-Friendly CV Maker. Tüm hakları saklıdır.</p>
+            <div class="footer-links">
+                <a href="javascript:void(0)" onclick="openPolicyModal('faq')" data-i18n="footer_faq">Sıkça Sorulan Sorular</a>
+                <a href="javascript:void(0)" onclick="openPolicyModal('privacy')" data-i18n="footer_privacy">Gizlilik Politikası</a>
+                <a href="javascript:void(0)" onclick="openPolicyModal('terms')" data-i18n="footer_terms">Kullanım Koşulları</a>
+                <a href="mailto:yasar.huseyin1999@gmail.com" data-i18n="footer_contact">İletişim</a>
+            </div>
+        </footer>
+    </section>
+
+    
+    <section id="auth-view" class="view-section">
+        <button class="back-to-home" onclick="showView('landing-view')">← Ana Sayfa</button>
+        
+        <div class="auth-card professional">
+            <div class="auth-header">
+                <div class="brand-logo small">AF</div>
+                <h2 id="auth-title">Hesabınıza Giriş Yapın</h2>
+                <p id="auth-subtitle">CV'nizi düzenlemeye devam edin</p>
+            </div>
+
+            <form onsubmit="event.preventDefault(); handleAuth();">
+                <div class="input-group">
+                    <label>E-posta Adresi</label>
+                    <input type="email" id="auth-email" class="auth-input" placeholder="ornek@email.com" autocomplete="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Şifre</label>
+                    <input type="password" id="auth-password" class="auth-input" placeholder="••••••••" autocomplete="current-password" required>
+                </div>
+
+                <div id="terms-container" style="display:none;" class="terms-check">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="auth-terms">
+                        <span class="checkmark"></span>
+                        <span class="terms-text" data-i18n="auth_terms_text"><a href="javascript:void(0)" onclick="openPolicyModal('terms')">Kullanım Koşulları</a>'nı ve <a href="javascript:void(0)" onclick="openPolicyModal('privacy')">Gizlilik Politikasını</a> okudum, kabul ediyorum.</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="auth-btn">
+                    <span id="auth-btn-text">Giriş Yap</span>
+                </button>
+            </form>
+            
+            <div class="divider"><span>VEYA</span></div>
+
+            <button class="auth-btn google-btn" onclick="loginWithGoogle()" type="button">
+                <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4c-7.305 0-13.782 3.914-17.694 9.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C10.111 38.971 16.51 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+                <span>Google ile Devam Et</span>
+            </button>
+
+            <button class="auth-btn guest-btn" onclick="continueAsGuest()" type="button" style="background: #f1f2f6; color: #2d3436; border: 1px solid #ddd; margin-top: 10px; box-shadow: none;">
+                <span class="icon">👤</span>
+                <span data-i18n="btn_guest">Misafir Olarak Devam Et</span>
+            </button>
+            
+            <p class="auth-toggle" onclick="toggleAuthMode()">
+                <span id="auth-toggle-msg">Hesabın yok mu?</span> 
+                <span id="auth-toggle-link" class="link-text">Hemen Kayıt Ol</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="template-view" class="view-section">
+        <div class="template-header">
+            <h1 data-i18n="tpl_select_header">Profesyonel Bir Şablon Seçin</h1>
+        </div>
+        <div class="template-grid">
+            <div class="template-card" onclick="selectTemplate('tpl-classic')">
+                <div class="template-preview">
+                    <img src="assets/classic-cv.png" alt="Klasik Şablon Önizleme">
+                </div>
+                <div class="template-info">
+                    <h3 data-i18n="tpl_classic">Klasik</h3>
+                    <p data-i18n="tpl_classic_desc">🏛️ Geleneksel </p>
+                </div>
+            </div>
+            
+            <div class="template-card" onclick="selectTemplate('tpl-compact')">
+                <div class="template-preview">
+                    <img src="assets/compact-cv.png" alt="Kompakt Şablon Önizleme">
+                </div>
+                <div class="template-info">
+                    <h3 data-i18n="tpl_compact">Kompakt</h3>
+                    <p data-i18n="tpl_compact_desc">📄 Minimal</p>
+                </div>
+            </div>
+
+            <div class="template-card" onclick="selectTemplate('tpl-elegant')">
+                <div class="template-preview">
+                    <img src="assets/elegant-cv.png" alt="elegant Şablon Önizleme">
+                </div>
+                <div class="template-info">
+                    <h3 data-i18n="tpl_elegant">Elegant</h3>
+                    <p data-i18n="tpl_elegant_desc">💎 Profesyonel</p>
+                </div>
+            </div>
+
+            <div class="template-card" onclick="selectTemplate('tpl-modern')">
+                <div class="template-preview">
+                    <img src="assets/modern-cv.png" alt="Modern Şablon Önizleme">
+                </div>
+                <div class="template-info">
+                    <h3 data-i18n="tpl_modern">Modern</h3>
+                    <p data-i18n="tpl_modern_desc">✨ Fotoğraflı & Şık</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="editor-view" class="view-section">
+        <div class="mobile-editor-tabs">
+            <button class="mobile-back-btn" onclick="backToTemplates()" aria-label="Back to templates">
+                <span class="icon">❮</span>
+            </button>
+            <button class="mobile-tab-btn active" onclick="switchMobileTab('edit')" id="tab-edit">
+                <span data-i18n="tab_edit">Düzenle</span>
+            </button>
+            <button class="mobile-tab-btn" onclick="switchMobileTab('preview')" id="tab-preview">
+                <span data-i18n="tab_preview">Önizle</span>
+            </button>
+            
+            <div class="lang-switcher-mobile-tabs">
+                <button class="lang-btn-mini active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn-mini" data-lang="en" onclick="setLanguage('en')">EN</button>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="brand-container">
+                <div class="brand-logo">AF</div>
+                <div class="brand-text">ATS-Friendly</div>
+            </div>
+            
+            <div id="sync-status">
+                <div id="status-dot" class="status-dot"></div>
+                <span id="status-text" data-i18n="status_connecting">Bağlanıyor...</span>
+                
+                <div class="lang-switcher-sidebar">
+                    <button class="lang-btn-mini active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                    <button class="lang-btn-mini" data-lang="en" onclick="setLanguage('en')">EN</button>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-group">
+                    <span class="nav-label" data-i18n="nav_design">TASARIM & DÜZEN</span>
+                    <button class="nav-item" onclick="openLayoutModal()">
+                        <span class="icon">🎨</span> <span data-i18n="btn_design">Tasarım & Düzen</span>
+                    </button>
+                    <button class="nav-item" onclick="backToTemplates()">
+                        <span class="icon">💠</span> <span data-i18n="btn_change_tpl">Şablonu Değiştir</span>
+                    </button>
+                </div>
+
+                <div class="nav-group">
+                    <span class="nav-label" data-i18n="nav_actions">İŞLEMLER</span>
+                    <button class="nav-item" onclick="window.print()">
+                        <span class="icon">🖨️</span> <span data-i18n="btn_download_pdf">PDF İndir</span>
+                    </button>
+                    <button class="nav-item danger" onclick="resetAll()">
+                        <span class="icon">🗑️</span> <span data-i18n="btn_reset">Sıfırla / Temizle</span>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="nav-item logout" onclick="logout()">
+                    <span class="icon">🚪</span> <span data-i18n="btn_logout">Çıkış Yap</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="editor-layout">
+            <div class="editor-panel-form" id="panel-form">
+                <div class="form-header-mini">
+                    <h2 data-i18n="form_title">Bilgilerinizi Düzenleyin</h2>
+                    <button class="btn-import-cv" onclick="document.getElementById('cv-upload-input').click()">
+                        <span class="icon">📄</span> <span data-i18n="btn_import_cv">CV'den Aktar</span>
+                    </button>
+                    <input type="file" id="cv-upload-input" style="display:none" accept=".pdf" onchange="handleCvUpload(event)">
+                </div>
+                
+                <div class="form-body">
+                    <div class="form-block">
+                        <h3 data-i18n="form_personal">Kişisel Bilgiler</h3>
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label data-i18n="form_lbl_fullname">Ad Soyad</label>
+                                <input type="text" id="inp-fullname" class="form-input" data-i18n-placeholder="form_lbl_fullname" placeholder="Ad Soyad" oninput="generateCVFromForm()">
+                            </div>
+                            <div class="input-group">
+                                <label data-i18n="form_lbl_title">Unvan</label>
+                                <input type="text" id="inp-title" class="form-input" data-i18n-placeholder="form_lbl_title" placeholder="Unvan" oninput="generateCVFromForm()">
+                            </div>
+                            <div class="input-group">
+                                <label data-i18n="form_lbl_email">E-posta</label>
+                                <input type="email" id="inp-email" class="form-input" data-i18n-placeholder="form_lbl_email" placeholder="Email" oninput="generateCVFromForm()">
+                            </div>
+                            <div class="input-group">
+                                <label data-i18n="form_lbl_phone">Telefon</label>
+                                <input type="text" id="inp-phone" class="form-input" data-i18n-placeholder="form_lbl_phone" placeholder="Tel" oninput="generateCVFromForm()">
+                            </div>
+                            <div class="input-group">
+                                <div class="label-with-info">
+                                    <label data-i18n="form_lbl_linkedin">LinkedIn</label>
+                                    <div class="info-tooltip-container">
+                                        <span class="info-icon">i</span>
+                                        <div class="tooltip-box" data-i18n="linkedin_tip_text">İpucu: LinkedIn profil linkinizi 'Genel profil ve URL' kısmından kopyalarsanız CV'nizde daha şık (temiz) görünecektir.</div>
+                                    </div>
+                                </div>
+                                <input type="text" id="inp-linkedin" class="form-input" placeholder="linkedin.com/in/username" oninput="generateCVFromForm()">
+                                <small class="input-hint" style="font-size: 10px; color: #636e72; display: block; margin-top: 4px;">Örn: www.linkedin.com/in/adiniz</small>
+                            </div>
+                            <div class="input-group full-width">
+                                <label data-i18n="form_lbl_address">Adres</label>
+                                <input type="text" id="inp-address" class="form-input" data-i18n-placeholder="form_lbl_address" placeholder="Adres" oninput="generateCVFromForm()">
+                            </div>
+                            <div class="input-group">
+                                <label data-i18n="cv_label_license">Ehliyet</label>
+                                <input type="text" id="inp-license" class="form-input" data-i18n-placeholder="cv_label_license" placeholder="Sınıf" oninput="generateCVFromForm()">
+                            </div>
+                            <div class="input-group">
+                                <label data-i18n="form_lbl_photo">Profil Fotoğrafı</label>
+                                <div class="photo-upload-container">
+                                    <input type="file" id="inp-photo" class="form-input" accept="image/*" onchange="handlePhotoUpload(event)" style="display:none;">
+                                    <button class="btn-secondary-dashed btn-small" onclick="document.getElementById('inp-photo').click()" data-i18n="btn_choose_photo">Fotoğraf Seç</button>
+                                    <button id="btn-remove-photo" class="btn-text danger btn-small" onclick="removePhoto()" style="display:none;" data-i18n="btn_remove_photo">Kaldır</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-block">
+                        <h3 data-i18n="form_profile">Profil Özeti</h3>
+                        <textarea id="inp-summary" class="form-input" rows="4" data-i18n-placeholder="lbl_desc" placeholder="Kısa özet..." oninput="generateCVFromForm()"></textarea>
+                    </div>
+
+                    <div class="form-block">
+                        <h3 data-i18n="form_experience">İş Deneyimi</h3>
+                        <div id="form-experiences-list"></div>
+                        <button class="btn-secondary-dashed" onclick="addFormExperience()">+ <span data-i18n="btn_add_job">İş Ekle</span></button>
+                    </div>
+
+                    <div class="form-block">
+                        <h3 data-i18n="form_education">Eğitim</h3>
+                        <div id="form-education-list"></div>
+                        <button class="btn-secondary-dashed" onclick="addFormEducation()">+ <span data-i18n="btn_add_edu">Okul Ekle</span></button>
+                    </div>
+                    <div class="form-block">
+                        <div class="section-title-edit">
+                            <input type="text" id="title-certificates" class="section-header-input" value="Sertifikalar" data-i18n-val="form_certificates" oninput="generateCVFromForm()">
+                            <button class="remove-section-btn" onclick="toggleSection('form-certificates-block')">×</button>
+                        </div>
+                        <div id="form-certificates-block">
+                            <div id="form-certificates-list"></div>
+                            <button class="btn-secondary-dashed" onclick="addFormCertificate()">+ <span data-i18n="btn_add_cert">Sertifika Ekle</span></button>
+                        </div>
+                    </div>
+                    <div class="form-block">
+                        <div class="section-title-edit">
+                            <input type="text" id="title-references" class="section-header-input" value="Referanslar" data-i18n-val="form_references" oninput="generateCVFromForm()">
+                            <button class="remove-section-btn" onclick="toggleSection('form-references-block')">×</button>
+                        </div>
+                        <div id="form-references-block">
+                            <div id="form-references-list"></div>
+                            <button class="btn-secondary-dashed" onclick="addFormReference()">+ <span data-i18n="btn_add_ref">Referans Ekle</span></button>
+                        </div>
+                    </div>
+
+                    <div class="form-block">
+                        <h3 data-i18n="form_custom">Özel Bölümler</h3>
+                        <div id="form-custom-list"></div>
+                        <button class="btn-secondary-dashed" onclick="addFormCustomSection()">+ <span data-i18n="btn_add_custom">Bölüm Ekle (Örn: Sertifikalar)</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-panel-preview" id="panel-preview">
+                <div id="cv-scale-container">
+                    <div class="page cv-content" id="cv-root">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-bottom-bar">
+            <button class="mobile-action-btn secondary" onclick="openLayoutModal()">
+                <span class="icon">📏</span> <span data-i18n="btn_layout">Düzen</span>
+            </button>
+            <button class="mobile-action-btn primary" onclick="window.print()">
+                <span data-i18n="btn_download_pdf">Kaydet</span>
+            </button>
+            <button class="mobile-action-btn secondary" onclick="openAccountModal()">
+                <span class="icon">👤</span> <span data-i18n="btn_account">Hesabım</span>
+            </button>
+        </div>
+
+        <div id="fab-overlay" class="fab-overlay" onclick="toggleFabMenu()"></div>
+        <div class="mobile-fab-container">
+            <div class="fab-menu-items" id="fab-items">
+                <button class="fab-item danger" onclick="resetAll()">
+                    <span class="fab-label">Temizle</span> 🗑️
+                </button>
+                <button class="fab-item" onclick="backToTemplates()">
+                    <span class="fab-label">Şablonlar</span> 💠
+                </button>
+                <button class="fab-item" onclick="window.print()">
+                    <span class="fab-label">Kaydet (PDF)</span> 🖨️
+                </button>
+            </div>
+            <button class="fab-main-btn" onclick="toggleFabMenu()" id="fab-trigger" aria-label="Open settings menu">
+                ⚙️
+            </button>
+        </div>
+
+    </section>
+
+    <script type="module" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/tr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css">
+</body>
+</html>
