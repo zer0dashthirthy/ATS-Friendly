@@ -1244,7 +1244,7 @@ window.generateCVFromForm = (triggerSave = true) => {
     let eduContent = "";
     if (data.education.length > 0) {
         let entries = data.education.map(edu => {
-            const dateStr = `${formatCvDate(edu.startDate)} — ${formatCvDate(edu.endDate)}`;
+            const dateStr = `${formatCvDate(edu.startDate)} — ${edu.present ? formatCvDate('present') : formatCvDate(edu.endDate)}`;
             
             if (isModern) {
                 return `
