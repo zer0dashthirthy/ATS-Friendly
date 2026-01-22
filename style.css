@@ -450,7 +450,9 @@ body {
     .hero-subtitle { font-size: 1rem; margin-bottom: 25px; }
     .hero-buttons { justify-content: center; flex-direction: column; width: 100%; gap: 12px; }
     .btn-hero-primary, .btn-hero-secondary { width: 100%; padding: 16px; }
-    .landing-header { padding: 15px 20px; }
+    .landing-header { padding: 15px 15px; }
+    .landing-header .brand-text { display: none; }
+    .header-actions { gap: 8px; }
     .mockup-card { width: 260px; height: 330px; margin: 0 auto; }
 }
 
@@ -723,8 +725,57 @@ body {
     color: white;
 }
 
+.lang-switcher-minimal {
+    display: flex;
+    gap: 4px;
+    background: #f1f2f6;
+    padding: 3px;
+    border-radius: 20px;
+}
+
+.template-header {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.auth-header-mobile {
+    display: none;
+    width: 100%;
+    padding: 15px 20px;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.back-to-home-minimal {
+    background: #f1f2f6;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #2d3436;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .auth-header-mobile { display: flex; }
+    .template-header h1 { font-size: 1.5rem; }
+    .back-to-home { display: none !important; }
+}
+
 @media screen and (max-width: 480px) {
-    .lang-switcher-minimal { display: none; }
+    /* lang-switcher-minimal is now visible on mobile */
 }
 
 #template-view { 

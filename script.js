@@ -540,23 +540,21 @@ window.switchMobileTab = (tab) => {
 };
 
 window.resizePreview = () => {
-    // CRITICAL: This function is ONLY for screen preview, never for print
-    // Print layout is handled 100% by CSS @media print rules
-    
+        
     const previewPanel = document.getElementById('panel-preview');
     const scaleContainer = document.getElementById('cv-scale-container');
     const cvRoot = document.getElementById('cv-root');
 
     if (!previewPanel || !scaleContainer || !cvRoot) return;
     
-    // Check if we're in print mode - if so, do nothing
+    
     if (document.body.classList.contains('printing')) return;
 
-    // Desktop: no scaling needed
+    
     if (window.innerWidth > 1024) {
         cvRoot.style.transform = 'none';
         cvRoot.style.transformOrigin = '';
-        cvRoot.style.width = '794px'; // A4 width in pixels
+        cvRoot.style.width = '794px'; 
         scaleContainer.style.width = 'auto';
         scaleContainer.style.height = 'auto';
         scaleContainer.style.marginTop = '0';
@@ -564,8 +562,8 @@ window.resizePreview = () => {
         return;
     }
 
-    // Mobile: apply scale transform for preview only
-    const originalWidth = 794; // A4 width = 210mm = 794px
+    
+    const originalWidth = 794; 
     const horizontalPadding = 30; 
     const availableWidth = window.innerWidth - horizontalPadding;
 
@@ -1625,15 +1623,14 @@ window.resetAll = async (skipConfirm = false) => {
 
 window.initDatePicker = () => {
     if (typeof flatpickr !== 'undefined') {
-        // Destroy existing flatpickr instances to prevent duplicates
-        document.querySelectorAll('.date-picker-month').forEach(input => {
+                document.querySelectorAll('.date-picker-month:not(.flatpickr-mobile)').forEach(input => {
             if (input._flatpickr) {
                 input._flatpickr.destroy();
             }
         });
         
-        // Initialize flatpickr on all date picker inputs
-        flatpickr(".date-picker-month", {
+        
+        flatpickr(".date-picker-month:not(.flatpickr-mobile)", {
             plugins: [
                 new monthSelectPlugin({
                     shorthand: true, 
@@ -1644,6 +1641,7 @@ window.initDatePicker = () => {
             ],
             locale: currentLang === 'tr' ? 'tr' : 'en',
             maxDate: "today", 
+            disableMobile: true, 
             onChange: function(selectedDates, dateStr, instance) {
                 instance.element.value = dateStr;
                 generateCVFromForm();
@@ -1656,33 +1654,20 @@ setLanguage('tr');
 window.resizePreview();
 window.initDatePicker();
 
-// ============================================
-// PRINT EVENT HANDLERS
-// ============================================
-// CRITICAL ARCHITECTURAL RULE:
-// Print output must be 100% CSS-driven, zero JavaScript manipulation
-// All transforms, scales, and sizing are handled by @media print in CSS
-// These events are ONLY for state management, not layout changes
-
 let originalViewport = null;
 
 window.addEventListener('beforeprint', () => {
-    // Regenerate CV with latest form data
     if (window.generateCVFromForm) window.generateCVFromForm(false);
     
-    // Add print class for CSS targeting
+    
     document.body.classList.add('printing');
     
-    // DO NOT manipulate DOM styles here!
-    // All print layout is handled by @media print CSS rules
-    // This ensures consistent A4 output across all browsers
-});
+    });
 
 window.addEventListener('afterprint', () => {
-    // Remove print class
-    document.body.classList.remove('printing');
+        document.body.classList.remove('printing');
     
-    // Restore preview scaling for screen
+    
     if (window.resizePreview) window.resizePreview();
 });
 

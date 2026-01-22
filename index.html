@@ -314,6 +314,13 @@
 
     
     <section id="auth-view" class="view-section">
+        <div class="auth-header-mobile">
+            <button class="back-to-home-minimal" onclick="showView('landing-view')">❮</button>
+            <div class="lang-switcher-minimal">
+                <button class="lang-btn-mini active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn-mini" data-lang="en" onclick="setLanguage('en')">EN</button>
+            </div>
+        </div>
         <button class="back-to-home" onclick="showView('landing-view')">← Ana Sayfa</button>
         
         <div class="auth-card professional">
@@ -369,6 +376,10 @@
     <section id="template-view" class="view-section">
         <div class="template-header">
             <h1 data-i18n="tpl_select_header">Profesyonel Bir Şablon Seçin</h1>
+            <div class="lang-switcher-minimal">
+                <button class="lang-btn-mini active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn-mini" data-lang="en" onclick="setLanguage('en')">EN</button>
+            </div>
         </div>
         <div class="template-grid">
             <div class="template-card" onclick="selectTemplate('tpl-classic')">
